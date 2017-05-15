@@ -1,5 +1,6 @@
-import model.RPN;
+import Model.ReversePolishNotation;
 import org.junit.Test;
+import Model.ReversePolishNotation;
 
 import static org.junit.Assert.assertEquals;
 
@@ -14,7 +15,7 @@ public class RPNTest {
         String source = "(2*(1+3)/4)^2";
         String expected = "2 1 3 + * 4 / 2 ^";
 
-        String actual = RPN.createOutput(source);
+        String actual = ReversePolishNotation.createOutput(source);
         assertEquals("Unexpected string value", expected, actual);
     }
 
