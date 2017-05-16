@@ -1,6 +1,5 @@
 import Model.ReversePolishNotation;
 import org.junit.Test;
-import Model.ReversePolishNotation;
 
 import static org.junit.Assert.assertEquals;
 
@@ -8,7 +7,7 @@ import static org.junit.Assert.assertEquals;
 /**
  * Created by ostrouh on 09.04.2017.
  */
-public class RPNTest {
+public class ReversePolishNotationTest {
 
     @Test
     public void testCreateOutput(){
