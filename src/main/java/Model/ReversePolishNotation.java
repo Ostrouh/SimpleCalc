@@ -9,6 +9,16 @@ public class ReversePolishNotation {
 
     private final static String operators = "^*/+-";
     private static Stack<Character> stack = new Stack<Character>();
+    public String prefixNotation;
+    private String postfixNotation = createOutput();
+
+    public ReversePolishNotation(String prefixNotation){
+        this.prefixNotation = prefixNotation;
+    }
+
+    public String getPostfixNotation(){
+        return postfixNotation;
+    }
 
     private static int getPriority(Character ch) {
         if(ch == '^') {return 3;}
@@ -28,8 +38,8 @@ public class ReversePolishNotation {
             return false;
     }
 
-    public static String  createOutput(String input) {
-        char[] inputArray = input.toCharArray();
+    private String createOutput() {
+        char[] inputArray = prefixNotation.toCharArray();
 
         String output = "";
         char temp;
@@ -77,7 +87,7 @@ public class ReversePolishNotation {
                         temp = '\0';
                     }
                 }
-            } else throw new IllegalArgumentException(input);
+            } else throw new IllegalArgumentException(prefixNotation);
         }
         while(true) {
             if(stack.isEmpty()) {
