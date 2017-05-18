@@ -6,19 +6,8 @@ import java.util.Stack;
  * Created by ostrouh on 15.05.2017.
  */
 public class ReversePolishNotation {
-
     private final static String operators = "^*/+-";
     private static Stack<Character> stack = new Stack<Character>();
-    public String prefixNotation;
-    private String postfixNotation = createOutput();
-
-    public ReversePolishNotation(String prefixNotation){
-        this.prefixNotation = prefixNotation;
-    }
-
-    public String getPostfixNotation(){
-        return postfixNotation;
-    }
 
     private static int getPriority(Character ch) {
         if(ch == '^') {return 3;}
@@ -38,8 +27,8 @@ public class ReversePolishNotation {
             return false;
     }
 
-    private String createOutput() {
-        char[] inputArray = prefixNotation.toCharArray();
+    public static String  createOutput(String input) {
+        char[] inputArray = input.toCharArray();
 
         String output = "";
         char temp;
@@ -87,7 +76,7 @@ public class ReversePolishNotation {
                         temp = '\0';
                     }
                 }
-            } else throw new IllegalArgumentException(prefixNotation);
+            } else throw new IllegalArgumentException(input);
         }
         while(true) {
             if(stack.isEmpty()) {

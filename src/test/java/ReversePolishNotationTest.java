@@ -12,8 +12,9 @@ public class ReversePolishNotationTest {
         String source = "(2*(1+3)/4)^2";
         String expected = "2 1 3 + * 4 / 2 ^";
 
-        String actual = new ReversePolishNotation(source).getPostfixNotation();
+        String actual = ReversePolishNotation.createOutput(source);
         assertEquals("Unexpected string value", expected, actual);
     }
 
 }
+

@@ -16,21 +16,23 @@ public class Main {
         String input;
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
         while (!(input = reader.readLine()).equals("exit")) {
-            log.info("Выражение получено");
+            log.info("Expression recieved");
             String output = null;
-            double result;
             try {
-                output = new ReversePolishNotation(input).getPostfixNotation();
-                result = new Calc(output).getResult();
-                log.info("Результат получен");
-                System.out.println("Результат: " + result);
+                output = ReversePolishNotation.createOutput(input);
+                double result = new Calc().getResult(output);
+                log.info("Result recieved");
+                System.out.println("Result is: " + result);
             } catch (IllegalArgumentException e) {
-                log.error("Недопустимое выражение: " + e.getMessage(), e);
-                System.out.println("Недопустимое выражение: " + e.getMessage());
+                log.error("Illegal expression: " + e.getMessage(), e);
+                System.out.println("Illegal expression: " + e.getMessage());
             }
         }
         reader.close();
         log.info("Конец работы");
+        reader.close();
+        log.info("End of work");
     }
 }

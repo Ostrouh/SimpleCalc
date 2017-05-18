@@ -4,18 +4,7 @@ package Model;
  * Created by ostrouh on 15.05.2017.
  */
 public class Calc {
-    private double result = createResult();
-    public String input;
-
-    public Calc(String input){
-        this.input = input;
-    }
-
-    public double getResult(){
-        return result;
-    }
-
-    public double createResult(){
+    public double getResult(String input){
         String[] inputArr = input.split(" ");
 
         double first;
