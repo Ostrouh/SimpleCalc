@@ -31,8 +31,6 @@ public class Main {
             }
         }
         reader.close();
-        log.info("Конец работы");
-        reader.close();
         log.info("End of work");
     }
 }
