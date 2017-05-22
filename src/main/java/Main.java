@@ -37,7 +37,7 @@ public class Main extends Application {
     }
     public void start(Stage primaryStage) throws Exception {
 
-        Parent root = FXMLLoader.load(getClass().getResource("View/Main.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
         primaryStage.setTitle("SimpleCalc");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
