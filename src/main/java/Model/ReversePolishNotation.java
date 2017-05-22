@@ -9,7 +9,11 @@ public class ReversePolishNotation {
     private final static String operators = "^*/+-";
     private static Stack<Character> stack = new Stack<Character>();
 
-    private static int getPriority(Character ch) {
+    public static String getOperators(){
+        return operators;
+    }
+
+    private static int operatorsPriority(Character ch) {
         if(ch == '^') {return 3;}
 
         else if(ch == '*' || ch == '/'){return 2;}
@@ -49,7 +53,7 @@ public class ReversePolishNotation {
                     temp = stack.pop();
                     output += " ";
 
-                    if (getPriority(in) > 0 && getPriority(in) > getPriority(temp)) {
+                    if (operatorsPriority(in) > 0 && operatorsPriority(in) > operatorsPriority(temp)) {
                         stack.push(temp);
                         stack.push(in);
                     } else {

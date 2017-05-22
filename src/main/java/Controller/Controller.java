@@ -11,6 +11,7 @@ import javafx.scene.control.TextField;
  */
 public class Controller {
     String text = "";
+    String operators = ReversePolishNotation.getOperators();
     @FXML
     private TextField textField;
     @FXML
@@ -107,35 +108,48 @@ public class Controller {
     }
     @FXML
     public void onClickButtonPlus(){
-        text += "+";
-        setText(text);
+        if (!operators.contains(text.substring(text.length()-1)) && text.length() != 0) {
+            text += "+";
+            setText(text);
+        }
     }
     @FXML
     public void onClickButtonMinus(){
-        text += "-";
-        setText(text);
+        if (!operators.contains(text.substring(text.length()-1)) && text.length() != 0) {
+            text += "-";
+            setText(text);
+        }
     }
     @FXML
     public void onClickButtonMultiply(){
-        text += "*";
-        setText(text);
+        if (!operators.contains(text.substring(text.length()-1)) && text.length() != 0) {
+            text += "*";
+            setText(text);
+        }
     }
     @FXML
     public void onClickButtonDivide(){
-        text += "/";
-        setText(text);
+        if (!operators.contains(text.substring(text.length()-1)) && text.length() != 0) {
+            text += "/";
+            setText(text);
+        }
     }
     @FXML
     public void onClickButtonToDegrees(){
-        text += "^";
-        setText(text);
+        if (!operators.contains(text.substring(text.length()-1)) && text.length() != 0) {
+            text += "^";
+            setText(text);
+        }
     }
     @FXML
     public void onClickButtonEqual(){
-        String output = ReversePolishNotation.createOutput(text);
-        double result = new Calc().getResult(output);
-        text = result + "";
-        setText(text);
+        if (!operators.contains(text.substring(text.length()-1)) && text.length() != 0) {
+            String output = ReversePolishNotation.createOutput(text);
+            double result = new Calc().getResult(output);
+            text = result + "";
+            setText(text);
+            text = "";
+        }
     }
     @FXML
     public void onClickButtonDot(){
