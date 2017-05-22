@@ -108,42 +108,42 @@ public class Controller {
     }
     @FXML
     public void onClickButtonPlus(){
-        if (!operators.contains(text.substring(text.length()-1)) && text.length() != 0) {
+        if (text.length() != 0 && !operators.contains(text.substring(text.length()-1))) {
             text += "+";
             setText(text);
         }
     }
     @FXML
     public void onClickButtonMinus(){
-        if (!operators.contains(text.substring(text.length()-1)) && text.length() != 0) {
+        if (text.length() != 0 && !operators.contains(text.substring(text.length()-1))) {
             text += "-";
             setText(text);
         }
     }
     @FXML
     public void onClickButtonMultiply(){
-        if (!operators.contains(text.substring(text.length()-1)) && text.length() != 0) {
+        if (text.length() != 0 && !operators.contains(text.substring(text.length()-1))) {
             text += "*";
             setText(text);
         }
     }
     @FXML
     public void onClickButtonDivide(){
-        if (!operators.contains(text.substring(text.length()-1)) && text.length() != 0) {
+        if (text.length() != 0 && !operators.contains(text.substring(text.length()-1))) {
             text += "/";
             setText(text);
         }
     }
     @FXML
     public void onClickButtonToDegrees(){
-        if (!operators.contains(text.substring(text.length()-1)) && text.length() != 0) {
+        if (text.length() != 0 && !operators.contains(text.substring(text.length()-1))) {
             text += "^";
             setText(text);
         }
     }
     @FXML
     public void onClickButtonEqual(){
-        if (!operators.contains(text.substring(text.length()-1)) && text.length() != 0) {
+        if (text.length() != 0 && !operators.contains(text.substring(text.length()-1))) {
             String output = ReversePolishNotation.createOutput(text);
             double result = new Calc().getResult(output);
             text = result + "";
@@ -153,12 +153,11 @@ public class Controller {
     }
     @FXML
     public void onClickButtonDot(){
-//        if(!text.contains(".")) {
-//            text += ".";
-//            setText(text);
-//        }
-        text += ".";
-        setText(text);
+        String[] numbers = text.split("[+\\-*/^]+");
+        if (numbers[numbers.length-1].length() != 0 && !numbers[numbers.length-1].contains(".")) {
+            text += ".";
+            setText(text);
+        }
     }
     @FXML
     public void onClickButtonBS(){
