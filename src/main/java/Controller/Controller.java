@@ -1,5 +1,7 @@
 package Controller;
 
+import Model.Calc;
+import Model.ReversePolishNotation;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -8,8 +10,9 @@ import javafx.scene.control.TextField;
  * Created by ostrouh on 21.05.2017.
  */
 public class Controller {
+    String text = "";
     @FXML
-    private TextField tf;
+    private TextField textField;
     @FXML
     private Button buttonC;
     @FXML
@@ -49,80 +52,115 @@ public class Controller {
 
     @FXML
     public void onClickButtonC(){
-
+        text = "";
+        setText(text);
     }
     @FXML
     public void onClickButton1(){
-
+        text += "1";
+        setText(text);
     }
     @FXML
     public void onClickButton2(){
-
+        text += "2";
+        setText(text);
     }
     @FXML
     public void onClickButton3(){
-
+        text += "3";
+        setText(text);
     }
     @FXML
     public void onClickButton4(){
-
+        text += "4";
+        setText(text);
     }
     @FXML
     public void onClickButton5(){
-
+        text += "5";
+        setText(text);
     }
     @FXML
     public void onClickButton6(){
-
+        text += "6";
+        setText(text);
     }
     @FXML
     public void onClickButton7(){
-
+        text += "7";
+        setText(text);
     }
     @FXML
     public void onClickButton8(){
-
+        text += "8";
+        setText(text);
     }
     @FXML
     public void onClickButton9(){
-
+        text += "9";
+        setText(text);
     }
     @FXML
     public void onClickButton0(){
-
+        text += "0";
+        setText(text);
     }
     @FXML
     public void onClickButtonPlus(){
-
+        text += "+";
+        setText(text);
     }
     @FXML
     public void onClickButtonMinus(){
-
+        text += "-";
+        setText(text);
     }
     @FXML
     public void onClickButtonMultiply(){
-
+        text += "*";
+        setText(text);
     }
     @FXML
     public void onClickButtonDivide(){
-
+        text += "/";
+        setText(text);
     }
     @FXML
     public void onClickButtonToDegrees(){
-
+        text += "^";
+        setText(text);
     }
     @FXML
     public void onClickButtonEqual(){
-
+        String output = ReversePolishNotation.createOutput(text);
+        double result = new Calc().getResult(output);
+        text = result + "";
+        setText(text);
     }
     @FXML
     public void onClickButtonDot(){
-
+//        if(!text.contains(".")) {
+//            text += ".";
+//            setText(text);
+//        }
+        text += ".";
+        setText(text);
     }
     @FXML
     public void onClickButtonBS(){
-
+        text = delLastChar(text);
+        textField.setText(text);
     }
 
+    private void setText(String text){
+        textField.setText(text);
+    }
 
+    private String delLastChar(String text){
+        if (text == null || text.length() == 0) {
+            return text;
+        }
+        return text.substring(0, text.length()-1);
+
+    }
 }
