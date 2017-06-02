@@ -14,7 +14,7 @@ public class Main extends Application {
     private static final Logger log = Logger.getLogger(Main.class);
 
     public static void main(String[] args) throws IOException {
-
+        log.info("Start working");
         launch(args);
 //        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 //
@@ -42,6 +42,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
         primaryStage.setTitle("SimpleCalc");
         primaryStage.setScene(new Scene(root));
+        primaryStage.getScene().getStylesheets().add("css/DarkTheme.css");
         primaryStage.show();
     }
 }
