@@ -47,6 +47,6 @@
       <Button fx:id="buttonToDegrees" defaultButton="true" layoutX="150.0" layoutY="100.0" mnemonicParsing="false"
               onAction="#onClickButtonToDegrees" prefWidth="40.0" text="^" />
       <Button fx:id="buttonBS" defaultButton="true" layoutX="75.0" layoutY="100.0" mnemonicParsing="false"
-              onAction="#onClickButtonBS" prefWidth="40.0" text="BS" />
+              onAction="#onClickButtonBS" prefWidth="50.0" text="BS" />
    </children>
 </AnchorPane>
