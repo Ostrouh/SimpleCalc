@@ -12,7 +12,7 @@ import java.io.IOException;
  * Created by ostrouh on 15.05.2017.
  */
 public class Main extends Application {
-    private static final Logger log = Logger.getLogger(Main.class);
+    protected static final Logger log = Logger.getLogger(Main.class);
 
     public static void main(String[] args) throws IOException {
         log.info("Start working");
@@ -28,7 +28,8 @@ public class Main extends Application {
         primaryStage.setResizable(false);
         Image icon = new Image("images/icon.png");
         primaryStage.getIcons().add(icon);
-
         primaryStage.show();
+
+        log.info("Calc started");
     }
 }

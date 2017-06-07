@@ -51,6 +51,8 @@ public class Controller {
     @FXML
     private Button buttonEqual;
 
+
+
     @FXML
     public void onClickButtonC(){
         text = "";
@@ -144,14 +146,19 @@ public class Controller {
     @FXML
     public void onClickButtonEqual(){
         if (text.length() != 0 && !operators.contains(text.substring(text.length()-1))) {
-            String output = ReversePolishNotation.createOutput(text);
+            String output = null;
+            try {
+                output = ReversePolishNotation.createOutput(text);
+            } catch (IllegalArgumentException e) {
+
+            }
             double result = new Calc().getResult(output);
 
 
 
             text = result + "";
             setText(text);
-            text = "";
+//            text = "";
         }
     }
     @FXML
@@ -179,4 +186,5 @@ public class Controller {
         return text.substring(0, text.length()-1);
 
     }
+
 }
